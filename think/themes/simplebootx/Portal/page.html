@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>{$post_title} {$site_name} </title>
+		<meta name="keywords" content="{$post_keywords}" />
+		<meta name="description" content="{$post_excerpt}">
+		<tc_include file="Public:head" />
+		<style>
+			#article_content img{height:auto !important}
+		</style>
+	</head>
+<body class="body-white">
+<tc_include file="Public:nav" />
+
+<div class="container tc-main">
+
+	<h2>剧情</h2>
+	<div class="index-mv-list  ">
+		<foreach name="movie['juqing']" item="vo">
+					<li class="col-xs-6 col-md-3">
+							<a href="{:leuu('article/index',array('id'=>$vo['_id']))}" class="index-mv-thumbnail">
+									<img src="{$vo.image}" class="img-responsive" alt="..." >
+									<p>{$vo.name} <br/><span class="index-score-lable">{$vo.douban_rating}</span></p>
+							</a>
+					</li>
+		</foreach>
+	</div>
+	<hr/>
+ <h2>喜剧</h2>
+	<div class="index-mv-list  ">
+		<foreach name="movie['xiju']" item="vo">
+					<li class="col-xs-6 col-md-3">
+							<a href="{:leuu('article/index',array('id'=>$vo['_id']))}" class="index-mv-thumbnail">
+									<img src="{$vo.image}" class="img-responsive" alt="..." >
+									<p>{$vo.name} <br/><span class="index-score-lable">{$vo.douban_rating}</span></p>
+							</a>
+					</li>
+		</foreach>
+	</div>
+	<hr/>
+  <h2>爱情</h2>
+	<div class="index-mv-list  ">
+		<foreach name="movie['aiqing']" item="vo">
+					<li class="col-xs-6 col-md-3">
+							<a href="{:leuu('article/index',array('id'=>$vo['_id']))}" class="index-mv-thumbnail">
+									<img src="{$vo.image}" class="img-responsive" alt="..." >
+									<p>{$vo.name} <br/><span class="index-score-lable">{$vo.douban_rating}</span></p>
+							</a>
+					</li>
+		</foreach>
+	</div>
+	<hr/>
+  <h2>惊悚</h2>
+	<div class="index-mv-list  ">
+		<foreach name="movie['jingsong']" item="vo">
+					<li class="col-xs-6 col-md-3">
+							<a href="{:leuu('article/index',array('id'=>$vo['_id']))}" class="index-mv-thumbnail">
+									<img src="{$vo.image}" class="img-responsive" alt="..." >
+									<p>{$vo.name} <br/><span class="index-score-lable">{$vo.douban_rating}</span></p>
+							</a>
+					</li>
+		</foreach>
+	</div>
+	<hr/>
+  <h2>动画</h2>
+	<div class="index-mv-list  ">
+		<foreach name="movie['donghua']" item="vo">
+					<li class="col-xs-6 col-md-3">
+							<a href="{:leuu('article/index',array('id'=>$vo['_id']))}" class="index-mv-thumbnail">
+									<img src="{$vo.image}" class="img-responsive" alt="..." >
+									<p>{$vo.name} <br/><span class="index-score-lable">{$vo.douban_rating}</span></p>
+							</a>
+					</li>
+		</foreach>
+	</div>
+
+<tc_include file="Public:footer"/>
+</div>
+
+<tc_include file="Public:scripts"/>
+</body>
+</html>

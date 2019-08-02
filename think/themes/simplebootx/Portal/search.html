@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>搜索 {$site_name} </title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="">
+		<tc_include file="Public:head" />
+	</head>
+<body class="body-white">
+<tc_include file="Public:nav" />
+<div class="container tc-main">
+	<div class="row">
+		<div class="span9">
+			<div class="main-title" >
+
+						<h3>'{$keyword['k']}' 搜索结果 </h3>
+						<p>{$keyword['count']}条结果</p>
+					</div>
+
+					<volist name="keyword['content']" id="vo">
+					<php>
+						$smeta=json_decode($vo['smeta'], true);
+					</php>
+
+					<div class="list-boxes">
+						<h2><a href="{:leuu('article/index',array('id'=>$vo['_id']))}">{$vo.name}</a></h2>
+						<p>{$vo.description}</p>
+						<div>
+							<div class="pull-left">
+								<div class="list-actions">
+								<a href="javascript:;"><i class="fa fa-eye"></i><span>{$vo.douban_rating}</span></a>
+								<a href="{:U('user/favorite/do_favorite',array('id'=>$vo['_id']))}" class="js-favorite-btn" data-title="{$vo.name}" data-url="{:U('portal/article/index',array('id'=>$vo['_id']))}" data-key="{:sp_get_favorite_key('posts',$vo['_id'])}">
+									<i class="fa fa-star-o"></i>
+								</a>
+								</div>
+							</div>
+							<a class="btn btn-warning pull-right" href="{:leuu('article/index',array('id'=>$vo['_id']))}">查看更多</a>
+						</div>
+					</div>
+					</volist>
+
+					<div class="pagination">
+							<ul>
+								{$result['page']}
+							</ul>
+					</div>
+
+				</div>
+
+
+	</div>
+
+<tc_include file="Public:footer"/>
+</div>
+
+<tc_include file="Public:scripts"/>
+</body>
+</html>

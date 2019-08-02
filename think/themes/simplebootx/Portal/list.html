@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$name} {$seo_title} {$site_name}</title>
+	<meta name="keywords" content="{$seo_keywords}" />
+	<meta name="description" content="{$seo_description}">
+    <tc_include file="Public:head" />
+</head>
+<body class="body-white">
+<tc_include file="Public:nav" />
+<div class="container tc-main" >
+	<h3 align="center">今日总票房:{$list.1.total_piaofang}&nbsp&nbsp&nbsp&nbsp日期:{$list.1.time}</h1>
+
+<table class="table table-bordered table-striped table-hover">
+<thead>
+<tr>
+<th>电影</th>
+<th>实时票房</th>
+<th>票房占比</th>
+<th>拍片占比</th>
+<th>上座率</th>
+</tr>
+</thead>
+<tbody>
+<foreach name="list" item="vo">
+<tr>
+<td>{$vo.name}</td>
+<td>{$vo.income_now}万</td>
+<td>{$vo.income_ratio}</td>
+<td>{$vo.row_ratio}</td>
+<td>{$vo.occupancy}</td>
+</tr>
+</foreach>
+</tbody>
+</table>
+
+    <tc_include file="Public:footer" />
+</div>
+
+
+<!-- JavaScript -->
+<tc_include file="Public:scripts" />
+</body>
+</html>
